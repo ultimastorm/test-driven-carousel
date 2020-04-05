@@ -8,7 +8,8 @@
     "test": "jest",
     "lint": "eslint . && prettier-eslint --lint-different **/*.js",
     "format": "prettier-eslint --write **/*.js",
-    "test:watch": "jest --watchAll --coverage --coverageReporters=text"
+    "test:watch": "jest --watchAll --coverage --coverageReporters=text",
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,7 @@
     "@babel/preset-react": "^7.9.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^5.10.0",
@@ -29,7 +31,9 @@
     "jest": "^25.2.7",
     "prettier": "^2.0.2",
     "prettier-eslint-cli": "^4.7.1",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
