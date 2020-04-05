@@ -15,6 +15,25 @@ describe('CarouselSlide', () => {
     );
   });
 
+  it('renders correctly', () => {
+    wrapper.setProps({
+      description: 'Description',
+      attribution: 'Attribution',
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('passes other props through to the <figure>', () => {
+    const style = {}
+    const onClick = () => {}
+    const className = 'my-carousel-slide';
+    wrapper.setProps({ style, onClick, className });
+    expect(wrapper.prop('style')).toBe(style);
+    expect(wrapper.prop('onClick')).toBe(onClick);
+    expect(wrapper.prop('className')).toBe(className);
+  });
+
+  /*
   it('renders a <figure>', () => {
     expect(wrapper.type()).toBe('figure');
   });
@@ -40,16 +59,8 @@ describe('CarouselSlide', () => {
     );
     expect(wrapper.find('figcaption strong').text()).toBe(description);
   });
+  */
 
-  it('passes other props through to the <figure>', () => {
-    const style = {}
-    const onClick = () => {}
-    const className = 'my-carousel-slide';
-    wrapper.setProps({ style, onClick, className });
-    expect(wrapper.prop('style')).toBe(style);
-    expect(wrapper.prop('onClick')).toBe(onClick);
-    expect(wrapper.prop('className')).toBe(className);
-  });
 
   describe('Img', () => {
     let mounted;
@@ -62,6 +73,18 @@ describe('CarouselSlide', () => {
       );
     });
 
+    it('renders correctly', () => {
+      expect(mounted.find('img')).toMatchSnapshot();
+    });
+
+    it('uses imgHeight as the height style property', () => {
+      expect(mounted).toHaveStyleRule('height', '500px');
+      mounted.setProps({ imgHeight: 'calc(100vh - 100px)' });
+      expect(mounted).toHaveStyleRule('height', 'calc(100vh - 100px)');
+    });
+    
+
+    /*
     it('renders an <img> with the given src', () => {
       expect(mounted.containsMatchingElement(<img src={imgUrl} />)).toBe(true);
     });
@@ -71,11 +94,6 @@ describe('CarouselSlide', () => {
       expect(mounted).toHaveStyleRule('object-fit', 'cover');
     });
 
-    it('uses imgHeight as the height style property', () => {
-      expect(mounted).toHaveStyleRule('height', '500px');
-      mounted.setProps({ imgHeight: 'calc(100vh - 100px)' });
-      expect(mounted).toHaveStyleRule('height', 'calc(100vh - 100px)');
-    });
 
     it('allows styles to be overridden', () => {
       const TestImg = styled(CarouselSlide.defaultProps.Img)`
@@ -96,5 +114,7 @@ describe('CarouselSlide', () => {
       expect(mounted.find(TestImg)).toHaveStyleRule('height', 'auto');
       expect(mounted.find(TestImg)).toHaveStyleRule('object-fit', 'fill');
     });
+    */
+
   });
 });
