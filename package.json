@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint . && prettier-eslint --lint-different **/*.js",
+    "lint:js": "eslint . && prettier-eslint --lint-different **/*.js",
+    "lint:css": "stylelint **/*.js",
+    "lint": "npm run lint:js && npm run lint:css",
     "format": "prettier-eslint --write **/*.js",
     "test:watch": "jest --watchAll --coverage --coverageReporters=text",
     "build": "webpack --config webpack.config.js",
@@ -24,6 +26,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "babel-plugin-styled-components": "^1.10.7",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^5.10.0",
@@ -34,13 +37,18 @@
     "prettier": "^2.0.2",
     "prettier-eslint-cli": "^4.7.1",
     "react-dom": "^16.4.2",
+    "stylelint": "^9.9.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.1",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.4.2"
+    "react": "^16.4.2",
+    "styled-components": "^4.1.1"
   },
   "jest": {
     "transform": {
