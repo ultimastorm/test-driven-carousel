@@ -7,7 +7,7 @@ module.exports = function () {
     tests: ['src/tests/**/*.test.js'],
     files: ['src/**/*.js', '!**/*.test.js', '!**/.*'],
     compilers: {
-      '**/*.js': wallaby.compilers.babel(),
+      //'**/*.js': wallaby.compilers.babel(),
     },
   };
 };

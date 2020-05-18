@@ -48,6 +48,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "husky": "^4.2.5",
     "prop-types": "^15.7.2",
     "react": "^16.4.2",
     "styled-components": "^4.1.1"
@@ -56,5 +57,10 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     }
+  },
+  "husky": {
+      "hooks": {
+          "pre-commit": "eslint ."
+      }
   }
 }
